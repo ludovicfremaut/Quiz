@@ -1,0 +1,25 @@
+{
+  "name": "s10-oquiz-ludovicfremaut",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Skadi/S10-Oquiz-ludovicfremaut.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Skadi/S10-Oquiz-ludovicfremaut/issues"
+  },
+  "homepage": "https://github.com/O-clock-Skadi/S10-Oquiz-ludovicfremaut#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
