@@ -3,7 +3,12 @@
 const mainController = {
   // on crée une nouvelle méthode pour afficher la page d'accueil
   showHomePage: (req, res) => {
-    res.status(200).render("index");
+    try {
+      const quizzes = await Quiz.fin
+      res.status(200).render("index");
+    } catch (error) {
+      res.status(500).render("500") 
+    }
   },
 };
 
