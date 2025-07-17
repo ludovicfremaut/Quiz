@@ -1,24 +1,26 @@
-<%- include('partials/head') %>
-  <%- include('partials/header') %>
+<%- include('partials/head.ejs') %>
+  <%- include('partials/header.ejs') %>
 
     <!-- Corps de la page -->
     <main class="homepage">
       <!-- One quiz card element -->
+       <% for(const quiz of quizzes) { %>
         <article class="quiz-card">
           <div class="quiz-card__img-block">
-            <img src="" class="" alt="" />
+            <img src="<%= quiz.picture_url %>" class="quiz-card__img" alt="" />
             <div class="quiz-card__tags">
-              <span>Tag 1</span>
-              <span>Tag 2</span>
-              <span>Tag 3</span>
+              <% for(const tag of quiz.tags) { %>
+                <span><%= tag.name %></span>
+              <% } %>
             </div>
           </div>
           <div class="quiz-card__infos-block">
-            <h2 class="quiz-card__title">Titre quiz</h2>
-            <p class="quiz-card__author">Par Prénom NOM</p>
-            <a class="link-btn" href="./quiz.html">Jouer</a>
+            <h2 class="quiz-card__title"><%= quiz.title %></h2>
+            <p class="quiz-card__author">Par <%= quiz.user.firstname %> <%= quiz.user.lastname %></p>
+            <a class="link-btn" href="/quiz/<%= quiz.id %>">Jouer</a>
           </div>
         </article>
+      <% } %>
     </main>
 
     <%- include('partials/footer') %>

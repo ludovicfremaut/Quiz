@@ -8,6 +8,8 @@ import path from "node:path";
 
 // On importe le router principal
 import mainRouter from "./app/routes/main.router.js";
+import tagRouter from "./app/routes/tag.router.js";
+import quizRouter from "./app/routes/quiz.router.js";
 
 //On crée une nouvelle instance d'express
 const app = express();
@@ -21,6 +23,12 @@ app.use(express.static("public"));
 
 //On appelle les routers
 app.use(mainRouter);
+app.use(tagRouter);
+app.use(quizRouter);
+
+app.use((req, res) => {
+  res.status(404).render("404");
+});
 
 app.listen(process.env.PORT, () => {
   console.log(`OQuiz est lancé sur le port ${process.env.PORT}`);

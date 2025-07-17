@@ -6,7 +6,7 @@ export default class Quiz extends Model {}
 Quiz.init(
     {
         title: {
-            type: DataTypes.STRING,
+            type: DataTypes,
             allowNull: false,
         },
         description: {
