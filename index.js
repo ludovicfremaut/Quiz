@@ -10,6 +10,7 @@ import path from "node:path";
 import mainRouter from "./app/routes/main.router.js";
 import tagRouter from "./app/routes/tag.router.js";
 import quizRouter from "./app/routes/quiz.router.js";
+import adminRouter from "./app/routes/admin.router.js";
 
 //On crée une nouvelle instance d'express
 const app = express();
@@ -25,6 +26,7 @@ app.use(express.static("public"));
 app.use(mainRouter);
 app.use(tagRouter);
 app.use(quizRouter);
+app.use(adminRouter);
 
 app.use((req, res) => {
   res.status(404).render("404");
