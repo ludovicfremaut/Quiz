@@ -7,11 +7,10 @@
       <!-- Berlingot d'erreur pour afficher les erreurs -->
       <% if (errorMessage) { %>
         <div class="form-error-block">
-          Une erreur s'est produite à l'envoi du formulaire : [message
-          d'erreur].
+          Une erreur s'est produite à l'envoi du formulaire : <%= errorMessage %>
         </div>
         <% } %>
-          <form class="signup-form" action="post">
+          <form class="signup-form" action="/inscription" method="post">
             <div class="signup-form__fieldset">
               <label for="firstname">Prénom</label>
               <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" <% if (data &&

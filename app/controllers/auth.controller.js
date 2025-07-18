@@ -35,10 +35,16 @@ const authController = {
         });
       }
 
-      req.session.user = email; // Stockage de l'email dans la session
+      req.session.user = {
+        id: user.id, // Stockage de l'ID de l'utilisateur dans la session
+        firstname: user.firstname, // Stockage du prénom dans la session
+        lastname: user.lastname, // Stockage du nom de famille dans la session
+        email: user.email, // Stockage de l'email dans la session
+      };
       console.log(req.session.user);
-      res.redirect("/"); // Redirection vers la page d'accueil après connexion
+      res.redirect("/profile"); // Redirection vers la page de profil après connexion
     } catch (error) {
+      console.error("Erreur dans handleLoginForm :", error);
       res.status(500).render("500");
     }
   },
@@ -90,7 +96,7 @@ const authController = {
         .not()
         .spaces(); // Ne doit pas contenir d'espaces
       // Le mdp ne doit pas être égal à la liste noire de mdp interdits
-      schema.is().not().oneOf(["12345678", "password", "qwertyuiop"]);
+      //schema.is().not().oneOf(["12345678", "password", "qwertyuiop"]);
 
       // Je crée un tableau d'erreurs
       const passwordErrors = passwordSchema.validate(password, {
@@ -107,7 +113,7 @@ const authController = {
 
       // Vérification de la confirmation du mot de passe il doit être identique au mot de passe
       if (password !== confirmation) {
-        res.render("signup", {
+        return res.render("signup", {
           data: req.body,
           errorMessage: "La confirmation du mot de passe ne correspond pas",
         });
@@ -137,6 +143,7 @@ const authController = {
       res.redirect("/connexion");
 
     } catch (error) {
+      console.error("Erreur dans handleSignupForm :", error);
       res.status(500).render("500");
     }
   },
