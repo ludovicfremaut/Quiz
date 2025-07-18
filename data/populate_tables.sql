@@ -21,7 +21,8 @@ TRUNCATE TABLE "level",
 -- ----------------------------------------
 INSERT INTO "user" ("id", "firstname", "lastname", "email", "password") VALUES
 (1, 'Philippe', 'Candille', 'philippe@oclock.io', '$2b$10$7vwYGrz2TGeyG4X8YnD9BOag9I.YKGUTJELs64qGmcK/syHu2BzTG'),
-(3, 'Chuck', 'Norris', 'chuck@oclock.io', '$2b$10$7vwYGrz2TGeyG4X8YnD9BOag9I.YKGUTJELs64qGmcK/syHu2BzTG');
+(3, 'Chuck', 'Norris', 'chuck@oclock.io', '$2b$10$7vwYGrz2TGeyG4X8YnD9BOag9I.YKGUTJELs64qGmcK/syHu2BzTG'),
+(5, 'hello', 'world', 'test@oclock.io', 'azerty');
 -- Note : le mot de passe haché (avec bcrypt) est 'password' ici ;-)
 
 

@@ -4,12 +4,12 @@
     <!-- Corps de la page -->
     <main class="homepage">
       <!-- One quiz card element -->
-       <% for(const quiz of quizzes) { %>
+       <% for(let quiz of quizzes) { %>
         <article class="quiz-card">
           <div class="quiz-card__img-block">
             <img src="<%= quiz.picture_url %>" class="quiz-card__img" alt="" />
             <div class="quiz-card__tags">
-              <% for(const tag of quiz.tags) { %>
+              <% for(let tag of quiz.tags) { %>
                 <span><%= tag.name %></span>
               <% } %>
             </div>
